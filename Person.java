@@ -68,6 +68,28 @@ public class Person
         }
     }
     
+     /**
+     * crea un objeto Persona que sera el hijo
+     * el hijo ha de ser almenos 13 años menor 
+     */
+    public void children(String name, int age) 
+    {
+        //si tienen una diferencia de 13 años
+        if(this.age <= 13)
+        {
+            System.out.println("Error, " + this.name + " no tiene edad suficiente para tener hijos");
+        }
+        else if ((age + 13) <= this.age)
+        {
+            this.children = new Person(name, age);
+        }
+        // si la diferencia de edad es inferior a 13
+        else
+        {
+            System.out.println("Error edad del hijo no valida demasiado mayor");
+        }
+    }
+    
     
     
 }
