@@ -97,7 +97,14 @@ public class Person
         System.out.println("Nombre: " + this.name);
         System.out.println("Edad:   " + this.age);
     }
-    
+
+    /**
+     * imprime por pantalla el numero de hijos que tiene
+     */
+    public void hasChildens()
+    {
+        System.out.println(this.name +" tiene " + children.size() + "hijos");
+    }
     /**
      * retorna la edad
      */
@@ -105,7 +112,7 @@ public class Person
     {
         return this.age;
     }
-    
+
     /**
      * retorna el nombre de la persona
      */
@@ -113,5 +120,5 @@ public class Person
     {
         return this.name;
     }
-    
+
 }
