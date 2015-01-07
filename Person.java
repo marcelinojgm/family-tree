@@ -36,4 +36,21 @@ public class Person
     }
     
     
+    /**
+     * crea un objeto Persona que sera el padre
+     * el padre ha de ser almenos 13 años mayor 
+     */
+    public void father(String name, int age) 
+    {
+        if ((this.age + 13) <= age)
+        {
+            this.father = new Person(name, age);
+        }
+        else
+        {
+            System.out.println("Error edad del padre no valida, demasiado jove");
+        }
+    }
+    
+    
 }
