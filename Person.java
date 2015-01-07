@@ -28,14 +28,13 @@ public class Person
         //datos de la persona
         this.name = name;
         this.age  = age;
-        
+
         //familiares 
         this.father   = null;
         this.mother   = null;
         this.children = null;
     }
-    
-    
+
     /**
      * crea un objeto Persona que sera el padre
      * el padre ha de ser almenos 13 años mayor 
@@ -48,11 +47,11 @@ public class Person
         }
         else
         {
-            System.out.println("Error edad del padre no valida, demasiado jove");
+            System.out.println("Error edad del padre no valida, demasiado joven");
         }
     }
-    
-     /**
+
+    /**
      * crea un objeto Persona que sera la madre
      * el madre ha de ser almenos 13 años mayor 
      */
@@ -67,8 +66,8 @@ public class Person
             System.out.println("Error edad del madre no valida, demasiado joven");
         }
     }
-    
-     /**
+
+    /**
      * crea un objeto Persona que sera el hijo
      * el hijo ha de ser almenos 13 años menor 
      */
@@ -89,7 +88,15 @@ public class Person
             System.out.println("Error edad del hijo no valida demasiado mayor");
         }
     }
-    
+
+    /**
+     * imprime por pantalla nombre y edad
+     */
+    public void showData()
+    {
+        System.out.println("Nombre: " + this.name);
+        System.out.println("Edad:   " + this.age);
+    }
     
     
 }
