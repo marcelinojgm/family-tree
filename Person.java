@@ -99,12 +99,18 @@ public class Person
     }
 
     /**
-     * imprime por pantalla el numero de hijos que tiene
+     * retorna booleano en funcion de si se tienen hijos o no
      */
-    public void hasChildens()
+    public boolean hasChildens()
     {
-        System.out.println(this.name +" tiene " + children.size() + "hijos");
+        boolean hasChildens = false;
+        if (this.children.size() != 0)
+        {
+            hasChildens = true;
+        }
+        return hasChildens;
     }
+    
     /**
      * retorna la edad
      */
