@@ -52,5 +52,22 @@ public class Person
         }
     }
     
+     /**
+     * crea un objeto Persona que sera la madre
+     * el madre ha de ser almenos 13 años mayor 
+     */
+    public void mother(String name, int age) 
+    {
+        if ((this.age + 13) <= age)
+        {
+            this.mother = new Person(name, age);
+        }
+        else
+        {
+            System.out.println("Error edad del madre no valida, demasiado joven");
+        }
+    }
+    
+    
     
 }
