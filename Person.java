@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * 
  * 
@@ -17,7 +17,7 @@ public class Person
     //padre de la persona
     private Person mother;
     //hijo de la persona
-    private Person children;
+    private ArrayList<Person> children;
 
     /**
      * constructor inicializa valores de nombre (name String)y edad(age int) con parametros por parametros
@@ -39,15 +39,15 @@ public class Person
      * crea un objeto Persona que sera el padre
      * el padre ha de ser almenos 13 años mayor 
      */
-    public void father(String name, int age) 
+    public void setFather(Person father ) 
     {
-        if ((this.age + 13) <= age)
+        if ((this.age + 13) <= father.getAge())
         {
             this.father = new Person(name, age);
         }
         else
         {
-            System.out.println("Error edad del padre no valida, demasiado joven");
+            System.out.println("Error," + father.getName() + " es demasiado joven para ser la padre de " + this.name);
         }
     }
 
@@ -55,15 +55,15 @@ public class Person
      * crea un objeto Persona que sera la madre
      * el madre ha de ser almenos 13 años mayor 
      */
-    public void mother(String name, int age) 
+    public void setMother(Person mother) 
     {
-        if ((this.age + 13) <= age)
+        if ((this.age + 13) <= mother.getAge())
         {
-            this.mother = new Person(name, age);
+            this.mother = mother;
         }
         else
         {
-            System.out.println("Error edad del madre no valida, demasiado joven");
+            System.out.println("Error," + mother.getName() + " es demasiado joven para ser la madre de " + this.name);
         }
     }
 
@@ -71,22 +71,22 @@ public class Person
      * crea un objeto Persona que sera el hijo
      * el hijo ha de ser almenos 13 años menor 
      */
-    public void children(String name, int age) 
+    public void children(Person children) 
     {
         //si tienen una diferencia de 13 años
         if(this.age <= 13)
         {
             System.out.println("Error, " + this.name + " no tiene edad suficiente para tener hijos");
         }
-        else if ((age + 13) <= this.age)
+        else if ((children.getAge() + 13) <= this.age)
         {
-            this.children = new Person(name, age);
+            this.children.add(children) ;
         }
         // si la diferencia de edad es inferior a 13
         else
         {
-            System.out.println("Error edad del hijo no valida demasiado mayor");
-        }
+            System.out.println("Error," + children.getName() + " es demasiado mayor para ser hijo de " + this.name);
+        } 
     }
 
     /**
@@ -98,5 +98,20 @@ public class Person
         System.out.println("Edad:   " + this.age);
     }
     
+    /**
+     * retorna la edad
+     */
+    public int getAge()
+    {
+        return this.age;
+    }
+    
+    /**
+     * retorna el nombre de la persona
+     */
+    public String getName()
+    {
+        return this.name;
+    }
     
 }
