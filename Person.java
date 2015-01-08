@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 /**
- * 
+ * simula una persona que tiene nombre y nuna edad 
+ * y se puede indicar que tiene una serie de parientes
  * 
  * @author Marcelino José Granda Muñoz
  * @version 
  */
 public class Person
 {
-    // instance variables - replace the example below with your own
     //nombre de la persona
     private String name;
     //edad de la persona
@@ -16,7 +16,7 @@ public class Person
     private Person father;
     //padre de la persona
     private Person mother;
-    //hijo de la persona
+    //hijos de la persona
     private ArrayList<Person> children;
 
     /**
@@ -32,18 +32,18 @@ public class Person
         //familiares 
         this.father   = null;
         this.mother   = null;
-        this.children = null;
+        this.children = new ArrayList<>();
     }
 
     /**
      * crea un objeto Persona que sera el padre
-     * el padre ha de ser almenos 13 años mayor 
+     * el padre ha de ser al menos 13 años mayor 
      */
     public void setFather(Person father ) 
     {
-        if ((this.age + 13) <= father.getAge())
+        if ((father.getAge() - this.age ) >= 13 )
         {
-            this.father = new Person(name, age);
+            this.father =  father;
         }
         else
         {
@@ -57,7 +57,7 @@ public class Person
      */
     public void setMother(Person mother) 
     {
-        if ((this.age + 13) <= mother.getAge())
+        if ((mother.getAge() - this.age) >= 13 )
         {
             this.mother = mother;
         }
@@ -68,19 +68,19 @@ public class Person
     }
 
     /**
-     * crea un objeto Persona que sera el hijo
+     * asigana un objeto Persona que sera el hijo
      * el hijo ha de ser almenos 13 años menor 
      */
-    public void children(Person children) 
+    public void addChild(Person children) 
     {
         //si tienen una diferencia de 13 años
-        if(this.age <= 13)
+        if(this.age < 13)
         {
             System.out.println("Error, " + this.name + " no tiene edad suficiente para tener hijos");
         }
-        else if ((children.getAge() + 13) <= this.age)
+        else if ((this.age - children.getAge() ) >= 13 )
         {
-            this.children.add(children) ;
+            this.children.add(children);
         }
         // si la diferencia de edad es inferior a 13
         else
@@ -104,19 +104,48 @@ public class Person
     public boolean hasChildens()
     {
         boolean hasChildens = false;
+        
         if (this.children.size() != 0)
         {
             hasChildens = true;
         }
         return hasChildens;
     }
-    
+
     /**
      * retorna la edad
      */
     public int getAge()
     {
         return this.age;
+    }
+
+    /**
+     * retorna true o false en funcion si tiene hemanos o no
+     */
+    public boolean hasBrothers()
+    {
+        boolean hasBrothers = false;
+        if (this.father != null)
+        {
+            if ((this.father.getChildren().size())  > 1 )
+            {
+                hasBrothers = true;
+            }
+            else
+            {
+                //por parte de padre
+                if (this.mother != null)
+                {
+                    if (this.mother.getChildren().size() > 1 )
+                    {
+                        hasBrothers = true;
+                    }
+                }
+            }
+
+        }
+        return hasBrothers;
     }
 
     /**
@@ -127,4 +156,12 @@ public class Person
         return this.name;
     }
 
+    /**
+     * retorna children
+     */
+    public ArrayList<Person> getChildren()
+    {
+        return this.children;
+    }
 }
+
