@@ -104,7 +104,7 @@ public class Person
     public boolean hasChildens()
     {
         boolean hasChildens = false;
-        
+
         if (this.children.size() != 0)
         {
             hasChildens = true;
@@ -163,5 +163,15 @@ public class Person
     {
         return this.children;
     }
+
+    /**
+     * retorna numero de hijos
+     */
+    public int getNumberOfChildren()
+    {
+        return this.children.size();
+    }
+    
+   
 }
 
