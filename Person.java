@@ -172,6 +172,29 @@ public class Person
         return this.children.size();
     }
     
+     /**
+     * muestra por pantalla los datos de la madre y el padre si estan definidos
+     */
+    public void showParentsData()
+    {
+        if (this.father != null)
+        {
+            System.out.println("PADRE");
+            System.out.println("------");
+            System.out.println("Nombre " + this.father.getName());
+            System.out.println("Edad   " + this.father.getAge());
+            System.out.println();
+        }
+        
+           if (this.father != null)
+        {
+            System.out.println("MADRE");
+            System.out.println("------");
+            System.out.println("Nombre " + this.father.getName());
+            System.out.println("Edad   " + this.father.getAge());
+            System.out.println();
+        }
+    }
    
 }
 
