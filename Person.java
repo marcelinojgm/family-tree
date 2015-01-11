@@ -100,16 +100,11 @@ public class Person
 
     /**
      * retorna booleano en funcion de si se tienen hijos o no
+     * cambiar para una sola linea
      */
     public boolean hasChildens()
     {
-        boolean hasChildens = false;
-
-        if (this.children.size() != 0)
-        {
-            hasChildens = true;
-        }
-        return hasChildens;
+        return (this.children.size()>0) ;
     }
 
     /**
@@ -125,27 +120,10 @@ public class Person
      */
     public boolean hasBrothers()
     {
-        boolean hasBrothers = false;
-        if (this.father != null)
-        {
-            if ((this.father.getChildren().size())  > 1 )
-            {
-                hasBrothers = true;
-            }
-            else
-            {
-                //por parte de padre
-                if (this.mother != null)
-                {
-                    if (this.mother.getChildren().size() > 1 )
-                    {
-                        hasBrothers = true;
-                    }
-                }
-            }
-
-        }
-        return hasBrothers;
+                    //si el padre tiene mas de un hijo
+         return ((this.father != null && this.father.getChildren().size()  > 1) || 
+                    //si la madre tienen mas de un hijo
+                 (this.mother != null && this.mother.getChildren().size()  > 1) );
     }
 
     /**
@@ -171,30 +149,26 @@ public class Person
     {
         return this.children.size();
     }
-    
-     /**
+
+    /**
      * muestra por pantalla los datos de la madre y el padre si estan definidos
      */
     public void showParentsData()
     {
         if (this.father != null)
         {
-            System.out.println("PADRE");
-            System.out.println("------");
-            System.out.println("Nombre " + this.father.getName());
-            System.out.println("Edad   " + this.father.getAge());
-            System.out.println();
+            System.out.println("FATHER");
+            System.out.println("----------------");
+            this.father.showData();
         }
-        
-           if (this.father != null)
+
+        if (this.mother != null)
         {
-            System.out.println("MADRE");
-            System.out.println("------");
-            System.out.println("Nombre " + this.father.getName());
-            System.out.println("Edad   " + this.father.getAge());
-            System.out.println();
+            System.out.println("MOTHER");
+            System.out.println("----------------");
+            this.mother.showData();
         }
     }
-   
+
 }
 
